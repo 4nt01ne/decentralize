@@ -10,10 +10,23 @@ import org.apache.camel.impl.DefaultCamelContext;
 
 /**
  *
- * @author Delphine
+ * @author Antoine
  */
-public class Test {
-     public static void main(String args[]) throws Exception {
+public final class Test {
+
+    /**
+     * private constructor
+     */
+    private Test() {
+
+    }
+
+    /**
+     * psvm
+     * @param args ...
+     * @throws Exception when so
+     */
+    public static void main(final String[] args) throws Exception {
         // create CamelContext
          CamelContext context = new DefaultCamelContext();
 
