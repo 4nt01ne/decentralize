@@ -8,7 +8,7 @@ import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Test;
 
-public class RegisterAccountTest extends CamelTestSupport {
+public class CamelTest extends CamelTestSupport {
 
     @EndpointInject(uri = "mock:findAccounts")
     protected MockEndpoint resultEndpoint;
