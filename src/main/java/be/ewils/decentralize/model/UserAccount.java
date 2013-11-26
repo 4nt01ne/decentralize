@@ -1,37 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package be.ewils.decentralize.model;
 
 /**
  *
  * @author antoine
  */
-public class Account {
+public class UserAccount {
 
-    private final long id = System.nanoTime();
-    
-    private String pseudo;
-    private String email;
+    private long seed;
+    private final String pseudo;
+    private final String email;
     private String firstName;
     private String lastName;
 
-    public long getId() {
-        return id;
+    public UserAccount(String pseudo, String email) {
+        this.seed = System.nanoTime();
+        this.pseudo = pseudo;
+        this.email = email;
     }
 
-    public void setPseudo(String pseudo) {
-        this.pseudo = pseudo;
+    public String getId() {
+        return seed + "-" + pseudo;
     }
-    
+
     public String getPseudo() {
         return pseudo;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getEmail() {
@@ -41,8 +33,7 @@ public class Account {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-    
-    
+
     public String getFirstName() {
         return firstName;
     }
@@ -50,9 +41,13 @@ public class Account {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    
-    
+
     public String getLastName() {
         return lastName;
+    }
+
+    @Override
+    public String toString() {
+        return "UserAccount{" + "pseudo=" + pseudo + ", email=" + email + ", firstName=" + firstName + ", lastName=" + lastName + '}';
     }
 }
