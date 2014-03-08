@@ -49,10 +49,10 @@
 
     <HBox spacing="10" alignment="bottom_right" 
           GridPane.columnIndex="1" GridPane.rowIndex="6">
-        <Button text="Create Account"     
+        <Button fx:id="createAccount" text="Create Account"     
                 onAction="#handleCreateAccountButtonAction"/>
     </HBox>
 
-    <Button fx:id="actiontarget"
+    <Text fx:id="result"
       GridPane.columnIndex="1" GridPane.rowIndex="8"/>
 </GridPane>

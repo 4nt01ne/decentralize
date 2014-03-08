@@ -33,14 +33,14 @@ public class CreateUserController implements Initializable {
     @FXML
     private PasswordField password;
     @FXML
-    private Button actiontarget;
+    private Text result;
 
     @FXML
     protected void handleCreateAccountButtonAction(ActionEvent event) {
         UserAccount account = new UserAccount(pseudo.getText(), email.getText());
         account.setFirstName(firstName.getText());
         account.setLastName(lastName.getText());
-        actiontarget.setText("Create Account for: " + account + " :: " + password.getText());
+        result.setText("Create Account for: " + account + " :: " + password.getText());
     }
 
     @Override
