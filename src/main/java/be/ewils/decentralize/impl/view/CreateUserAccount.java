@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package be.ewils.decentralize.view;
+package be.ewils.decentralize.impl.view;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

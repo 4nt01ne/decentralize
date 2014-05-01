@@ -1,6 +1,6 @@
-package be.ewils.decentralize.account;
+package be.ewils.decentralize.impl.account;
 
-import be.ewils.decentralize.account.exceptions.ApplicationInternalException;
+import be.ewils.decentralize.impl.account.exceptions.ApplicationInternalException;
 
 /**
  * Registers a remote account in the user account

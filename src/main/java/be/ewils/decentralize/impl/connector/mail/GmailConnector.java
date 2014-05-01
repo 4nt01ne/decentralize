@@ -1,7 +1,8 @@
-package be.ewils.decentralize.connector.mail;
+package be.ewils.decentralize.impl.connector.mail;
 
-import be.ewils.decentralize.model.Email;
-import be.ewils.decentralize.model.RemoteAccount;
+import be.ewils.decentralize.api.connector.mail.Connector;
+import be.ewils.decentralize.impl.model.Email;
+import be.ewils.decentralize.impl.model.RemoteAccount;
 import com.google.common.base.Optional;
 import java.io.IOException;
 import java.util.LinkedList;
@@ -24,7 +25,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author antoine
  */
-public class GmailConnector {
+public class GmailConnector implements Connector {
 
     /**
      * *************************************************************************
@@ -54,6 +55,7 @@ public class GmailConnector {
      * public methods
      * ************************************************************************
      */
+    @Override
     public void send(RemoteAccount account, Email email)
         throws
         EmailException {
@@ -79,18 +81,18 @@ public class GmailConnector {
         _email.send();
     }
 
+    @Override
     public List<Email> readInbox(RemoteAccount account) 
         throws
-        NoSuchProviderException,
         MessagingException,
         IOException {
         
         return readInbox(account, -1);
     }
     
+    @Override
     public List<Email> readInbox(RemoteAccount account, int maxMails)
         throws
-        NoSuchProviderException,
         MessagingException,
         IOException {
 

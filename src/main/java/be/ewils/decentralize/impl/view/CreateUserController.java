@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package be.ewils.decentralize.view;
+package be.ewils.decentralize.impl.view;
 
-import be.ewils.decentralize.model.UserAccount;
+import be.ewils.decentralize.impl.model.UserAccount;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;

@@ -1,5 +1,6 @@
 package be.ewils.decentralize.model;
 
+import be.ewils.decentralize.impl.model.UserAccount;
 import org.junit.Assert;
 import org.junit.Test;
 

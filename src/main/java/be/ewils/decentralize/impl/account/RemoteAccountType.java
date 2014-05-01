@@ -1,4 +1,4 @@
-package be.ewils.decentralize.account;
+package be.ewils.decentralize.impl.account;
 
 /**
  *

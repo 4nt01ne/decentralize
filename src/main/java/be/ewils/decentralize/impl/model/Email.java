@@ -1,4 +1,4 @@
-package be.ewils.decentralize.model;
+package be.ewils.decentralize.impl.model;
 
 import com.google.common.base.Optional;
 import java.io.IOException;

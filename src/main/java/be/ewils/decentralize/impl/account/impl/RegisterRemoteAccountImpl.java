@@ -1,9 +1,9 @@
-package be.ewils.decentralize.account.impl;
+package be.ewils.decentralize.impl.account.impl;
 
-import be.ewils.decentralize.account.RegisterRemoteAccount;
-import be.ewils.decentralize.account.RemoteAccountAuthorization;
-import be.ewils.decentralize.account.RemoteAccountType;
-import be.ewils.decentralize.account.exceptions.UnknownRemoteAccountTypeException;
+import be.ewils.decentralize.impl.account.RegisterRemoteAccount;
+import be.ewils.decentralize.impl.account.RemoteAccountAuthorization;
+import be.ewils.decentralize.impl.account.RemoteAccountType;
+import be.ewils.decentralize.impl.account.exceptions.UnknownRemoteAccountTypeException;
 
 import javax.annotation.Resource;
 import java.util.HashMap;

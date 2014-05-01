@@ -5,6 +5,7 @@
  */
 package be.ewils.decentralize.model;
 
+import be.ewils.decentralize.impl.model.RemoteAccount;
 import java.net.URI;
 import org.junit.Assert;
 import org.junit.Test;

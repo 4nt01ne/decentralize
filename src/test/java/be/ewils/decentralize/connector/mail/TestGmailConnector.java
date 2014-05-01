@@ -1,7 +1,8 @@
 package be.ewils.decentralize.connector.mail;
 
-import be.ewils.decentralize.model.Email;
-import be.ewils.decentralize.model.RemoteAccount;
+import be.ewils.decentralize.impl.connector.mail.GmailConnector;
+import be.ewils.decentralize.impl.model.Email;
+import be.ewils.decentralize.impl.model.RemoteAccount;
 import java.io.IOException;
 import java.util.List;
 import javax.mail.MessagingException;

@@ -1,4 +1,4 @@
-package be.ewils.decentralize.account.exceptions;
+package be.ewils.decentralize.impl.account.exceptions;
 
 /**
  * Created with IntelliJ IDEA.
