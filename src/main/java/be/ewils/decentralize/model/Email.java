@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import javax.mail.BodyPart;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
@@ -29,6 +30,8 @@ public class Email {
     private List<String> destinationsInBlackCopy;
     private String subject;
     private String body;
+    private int hash;
+
 
     private static final Map<String, Command> partCommands;
     private static final String DEFAULT_COMMAND = "default";
@@ -145,6 +148,52 @@ public class Email {
             + ", subject=" + subject
             + ", body=" + body + '}';
     }
+
+    @Override
+    public int hashCode() {
+        if(hash != 0) {
+            return hash;
+        }
+        
+        hash = 7;
+        hash = 31 * hash + Objects.hashCode(this.senders);
+        hash = 31 * hash + Objects.hashCode(this.destinations);
+        hash = 31 * hash + Objects.hashCode(this.destinationsInCopy);
+        hash = 31 * hash + Objects.hashCode(this.destinationsInBlackCopy);
+        hash = 31 * hash + Objects.hashCode(this.subject);
+        hash = 31 * hash + Objects.hashCode(this.body);
+        return hash;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Email other = (Email) obj;
+        if (!Objects.equals(this.senders, other.senders)) {
+            return false;
+        }
+        if (!Objects.equals(this.destinations, other.destinations)) {
+            return false;
+        }
+        if (!Objects.equals(this.destinationsInCopy, other.destinationsInCopy)) {
+            return false;
+        }
+        if (!Objects.equals(this.destinationsInBlackCopy, other.destinationsInBlackCopy)) {
+            return false;
+        }
+        if (!Objects.equals(this.subject, other.subject)) {
+            return false;
+        }
+        if (!Objects.equals(this.body, other.body)) {
+            return false;
+        }
+        return true;
+    } 
 
     private String getText(Multipart multipart) {
         try {

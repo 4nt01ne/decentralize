@@ -9,6 +9,7 @@ import javax.mail.NoSuchProviderException;
 import org.apache.commons.mail.EmailException;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -44,29 +45,28 @@ public class TestGmailConnector {
     }
     
     @Test
-    public void testSend() throws EmailException {
-        final RemoteAccount remoteAccount = new RemoteAccount("smtp://smtp.googlemail.com:465", "YOUR_LOGIN");
-        remoteAccount.setPasword("YOUR_PASSWORD");
+    public void testSendAndReceive() throws EmailException, MessagingException, NoSuchProviderException, IOException {
+        final RemoteAccount smtpAccount = new RemoteAccount("smtp://smtp.googlemail.com:465", "YOUR_LOGIN");
+        smtpAccount.setPasword("YOUR_PASSWORD");
         
         final long now = System.currentTimeMillis();
         Email email = new Email();
-        email.addDestination("YOUR_ACCOUNT@gmail.com");
+        email.addDestination("YOUR_LOGIN@gmail.com");
         email.setSubject("test - " + now);
         email.setBody("test - " + now);
-        connector.send(remoteAccount, email);
-    }    
-    @Test
-    public void testReadInbox() 
-    throws 
-        EmailException, 
-        MessagingException, 
-        NoSuchProviderException, 
-        IOException {
+        connector.send(smtpAccount, email);
         
-        final RemoteAccount remoteAccount = new RemoteAccount("imap.gmail.com", "YOUR_LOGIN");
-        remoteAccount.setPasword("YOUR_PASSWORD");
+        final RemoteAccount imapAccount = new RemoteAccount("imap.gmail.com", "YOUR_LOGIN");
+        imapAccount.setPasword("YOUR_PASSWORD");
+        boolean found = false;
+        List<Email> emails = connector.readInbox(imapAccount);
+        for(Email newEmail: emails) {
+            if(newEmail.getSubject().equals(newEmail.getSubject())) {
+                Assert.assertEquals(email, newEmail);
+                found = true;
+            }
+        }
         
-        List<Email> emails = connector.readInbox(remoteAccount, 5);
-        System.out.println(emails);
+        Assert.assertTrue(found);
     }    
-}
+ }
