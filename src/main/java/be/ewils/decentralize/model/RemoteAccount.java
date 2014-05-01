@@ -39,4 +39,10 @@ public class RemoteAccount {
     public String getLogin() {
         return login;
     }
+
+    @Override
+    public String toString() {
+        return "RemoteAccount{" + ", login=" + login + "remoteResource=" + remoteResource + '}';
+    }
+
 }
